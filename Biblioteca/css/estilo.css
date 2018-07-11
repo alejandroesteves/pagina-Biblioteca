@@ -1,0 +1,349 @@
+* {
+	box-sizing: border-box; /*el tamaño va hasta el borde, del contenido*/
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif; /*fuente web*/
+	background-image: url(../recursos/fondo.jpg);/*imagen de fondo*/
+	font-size: 18px;/*tamaño de la letra*/
+	line-height: 1.5;/*altura entre lineas*/
+}
+
+a {
+	color: #007bff;/*color letra*/
+	text-decoration: none;/*subrayado*/
+	background-color: transparent;/*color de fonde el elemento*/
+}
+
+p br {
+	line-height: 40px;/*espaciado entre lineas*/
+}
+
+.contenedor {
+	background-color: #fff;
+	width: 85%;/*ancho*/
+	padding-right: 15px;/*relleno hacia la derecha ,ancho*/
+	padding-left: 15px;/*relleno hacia la izquierda ,ancho*/
+	margin-right: auto;/* margen derecho establece el área de margen en el lado derecho de un elemento*/
+	margin-left: auto;/* margen izquierdo establece el área de margen en el lado izquierdo de un elemento*/
+	max-width: 1300px;/*ancho max*/
+	min-width: 900px;/*ancho min*/
+}
+
+.fila {
+	display: flex;/*flexible , forma mostrar*/
+	flex-wrap: wrap;/*hijo flexible*/
+	margin-right: -15px;
+	margin-left: -15px;
+}
+
+.columna {
+	position: relative;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.btn-arriba {
+	display: none;/*muestra*/
+	position: fixed;/*no depende de ningun elemento, sino del navegador*/
+	bottom: 40px;/*posicionamiento*/
+    left: 50%;/*corre el boton desde la izquierda a la mitad*/
+    transform: translateX(-50%);/*corre hacia la izquierda la mitad del elemento */
+}
+
+/*==========================================================================
+=                                 cabecera                                 =
+==========================================================================*/
+
+.cabecera {
+	justify-content: center;/*manda el contenido centro*/
+	padding: 8px;
+}
+
+.titulo {
+	font-size: 45px;/*tamaño de la letra*/
+	letter-spacing: 4px;/* espacio entre letras */
+	text-shadow: 4px 6px 0px #d5d5d5, 7px 9px 0px rgba(0, 0, 0, 0.2);/*sombreado*/
+	width: auto;/*ancho*/
+	font-style: italic;/*formato letra*/
+	font-weight: 700;/*negrita*/
+	user-select: none;/*no poder copiar*/
+}
+
+/*==========================  fin de cabecera  ===========================*/
+
+/*==========================================================================
+=                             barra navegacion                             =
+==========================================================================*/
+
+.barra-navegacion {
+	position: relative;
+	display: flex;/*flexible , forma mostrar*/
+	flex-wrap: wrap;/*hijo flexible*/
+	justify-content: center;/*manda el contenido centro*/
+	padding: 8px 16px;
+	color: #fff;/*color letra*/
+	background-color: #343a40;/*color fondo*/
+}
+
+.navegacion {
+	display: flex;/*flexible , forma mostrar*/
+	flex-direction: row;/*muentra en fila el menu*/
+	padding-left: 0;
+	margin: 0;
+	list-style: none;/*para borrar puntito del li*/
+}
+
+.navegacion-item {
+	text-align: center;/*centra sub menu*/
+}
+
+.navegacion-item > .navegacion-link {
+	color: #aaa;
+}
+
+.navegacion-item > .navegacion-link:hover {
+	color: #ccc;
+}
+
+.activo > .navegacion-link {
+	color: #fff;
+}
+
+.navegacion-link {
+	display: block;/*muestra*/
+	padding: 8px 16px;
+}
+
+.desplegable {
+	position: relative;
+}
+
+.desplegable:hover .sub-menu {/*pasa el rato por sub menu*/
+	display: block;/*muestra*/
+}
+
+.desplegable-item:after {/*flechita*/
+	display: inline-block;/*muestra*/
+	width: 0;
+	height: 0;
+	margin-left: 5px;
+	vertical-align: 3px;
+	content: "";
+	border-top: 6px solid;
+	border-right: 6px solid transparent;
+	border-left: 6px solid transparent;
+}
+
+.sub-menu {
+	position: absolute;/*antesesor*/
+	top: 100%;
+	left: 0;
+	z-index: 1000;/*por delante lo muestra*/
+	display: none;
+	float: left;
+	padding: 8px 0;
+	margin: 2px 0 0;
+	font-size: 16px;/*tamaño de la letra*/
+	color: #212529;
+	list-style: none;/*puntito por li*/
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+}
+
+.sub-menu-item {
+	display: block;/*muestra*/
+	width: 100%;
+	padding: 4px 24px;
+	color: #212529;
+	background-color: transparent;
+	border: 0;
+}
+
+.sub-menu-item:hover, .sub-menu-item:focus {/*saber donde esta el foco*/
+	color: #16181b;
+	text-decoration: none;
+	background-color: #ddd;
+}
+
+/*======================  fin de barra navegacion  =======================*/
+
+/*==========================================================================
+=                                contenido                                 =
+==========================================================================*/
+
+.cuerpo {
+	flex-basis: 0;/*ancho*/
+	flex-grow: 1;/*si 0 ocupa l min posible*/
+	max-width: 100%;
+}
+
+.titulo-seccion {
+	font-style: italic;/*formato letra*/
+	margin: 16px;
+}
+
+/*=========================  fin de contenido  ===========================*/
+
+/*==========================================================================
+=                              barra lateral                               =
+==========================================================================*/
+
+.barra-lateral {
+	width: auto;
+	background-color: #6c757d;
+	min-height: 480px;
+}
+
+.cuadro-top {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	word-wrap: break-word;/* las palabras largas se rompan y se envuelvan en la siguiente línea*/
+	background-color: #343a40;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 4px;
+	color: #fff;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.cuadro-titulo {
+	padding: 12px 20px;
+	margin-bottom: 0;
+	background-color: rgba(0, 0, 0, 0.03);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.cuadro-cuerpo {
+	padding: 20px;
+}
+
+/*=======================  End of barra lateral  =========================*/
+
+/*==========================================================================
+=                                   pie                                    =
+==========================================================================*/
+
+.pie {
+	justify-content: center;/*manda el contenido centro*/
+	padding: 16px;
+	margin-bottom: 8px;
+	background-color: #343a40;
+}
+
+.item-pie {
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+	text-align: center;
+	color: #fff;
+}
+
+/*============================  fin de pie  ==============================*/
+
+/*==========================================================================
+=                                 seccion                                  =
+==========================================================================*/
+
+.info {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	word-wrap: break-word;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+
+.info-titulo {
+	margin: 0;
+	padding: 12px 20px;
+	background-color: rgba(0, 0, 0, 0.03);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+	font-size: 20px;
+}
+
+.info-cuerpo {
+	text-align: justify;/*justifica que comienze del elemento */
+	padding: 4px; /*el espacio entre contenido y borde*/
+	margin: 0;/*espacio despues del border*/
+}
+
+.info-imagen {
+	border-radius: 4px;/*esquina redondeada*/
+	float: left;
+	margin: 8px;/*espacio despues del border*/
+}
+
+.info-vinculo {
+	text-decoration: none;
+	color: #000;
+}
+
+.info-vinculo:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+.formulario {
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+.formulario-fila {
+	padding: 8px; /*el espacio entre contenido y borde*/
+}
+
+.formulario-control {
+	display: block;
+	width: 100%;
+	padding: 6px 12px;/*el espacio entre contenido y borde*/
+	font-size: 16px;/*tamaño letra*/
+	line-height: 1.5;/*espacio entre lineas*/
+	color: #495057;
+	background-color: #fff;
+	border: 1px solid #ced4da;
+	border-radius: 4px;
+	font-family: Arial, Helvetica, sans-serif;
+	transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;/*transition del borde y sombra*/
+	resize: none;/*no puede editar el tamaño*/
+}
+
+.formulario-boton {
+	display: inline-block;
+	font-weight: 400;/*negrita*/
+	border: 1px solid transparent;
+	padding: 6px 12px;/*el espacio entre contenido y borde*/
+	font-size: 16px;/*tamaño letra*/
+	line-height: 1.5;/*espacio entre lineas*/
+	border-radius: 4px;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	color: #fff;
+	background-color: #007bff;
+	border-color: #007bff;
+}
+
+.formulario-boton:hover { /*cuando el raton pasa por encima*/
+	background-color: #0069d9;
+	border-color: #0062cc;
+}
+
+.formulario-boton:focus, .formulario-control:focus {
+	box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);/*sombreado*/
+}
+
+.parrafo {
+	text-align: justify;
+	padding: 4px; /*el espacio entre contenido y borde*/
+}
+
+.parrafo-item {
+	padding: 8px 24px; /*el espacio entre contenido y borde*/
+}
+
+/*==========================  fin de seccion  ============================*/
